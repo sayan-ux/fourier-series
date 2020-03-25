@@ -1,8 +1,5 @@
 import java.util.ArrayList;
-//import controlP5.*;
-//ControlP5 sli;
 
-//int slider = 1;
 
 float time=0.0f;
 float rad =100, u=0.0;
@@ -12,20 +9,17 @@ ArrayList<Float> wave = new ArrayList<Float>();
 
 void setup() {
   size(1500, 700);
-  //sli = new ControlP5(this);
-  
-  //sli.addSlider("slider").setPosition(100,100).setRange(1,101);
 }
 
 
 
 void draw() {
   background(0);
- // int g=slider;
+
   translate(250, 250);
   float x=0;
   float y=0;
-  for (int i=0; i<12; i++) {
+  for (int i=0; i<30; i++) {
     float px=x;
     float py=y;
     n=i*2+1;
@@ -33,20 +27,19 @@ void draw() {
 
     x+= u*cos(n*time);
     y+=u*sin(n*time);
-    
+
     noFill();
-    stroke(255,100);
+    stroke(255, 100);
     circle(px, py, u*2);
     stroke(255);
-    
+
     line(px, py, x, y);
     fill(255);
     circle(x, y, 2);
-    
   }
   wave.add(0, y);
   translate(150, 0);
-    line(x-150, y, 0, wave.get(0));
+  line(x-150, y, 0, wave.get(0));
   beginShape();
   for (int i=0; i<wave.size(); i++) {
     noFill();
